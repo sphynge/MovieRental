@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieRental.Tests.Models
 {
@@ -7,7 +8,6 @@ namespace MovieRental.Tests.Models
         private string _customerName;
         private readonly List<string> _movieNames;
         private readonly List<double> _amounts;
-        private double _totalAmount;
         private int _frequentRenterPoints;
 
         public StatementBuilder()
@@ -48,15 +48,17 @@ namespace MovieRental.Tests.Models
 
         public string Build()
         {
-            var result = "\nRental Record for " + _customerName + "\n";
+            var result = $"\nRental Record for {_customerName}\n";
             for (var i = 0; i < _movieNames.Count; i++)
             {
-                result += "\t" + _movieNames[i] + "\t" + _amounts[i] + "\n";
+                result += $"\t{_movieNames[i]}\t{_amounts[i]}\n";
             }
 
-            result += "Amount owed is " + _totalAmount + "\n";
-            result += "You earned " + _frequentRenterPoints + " frequent renter points\n";
+            result += $"Amount owed is {GetTotalAmount()}\n";
+            result += $"You earned {_frequentRenterPoints} frequent renter points\n";
             return result;
         }
+
+        private double GetTotalAmount() => _amounts.Sum();
     }
 }
