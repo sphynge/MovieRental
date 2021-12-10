@@ -27,9 +27,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(2)
-                    .WithFrequentRenterPoints(1)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(1)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -43,9 +43,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(2)
-                    .WithFrequentRenterPoints(1)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(1)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -58,9 +58,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(3.5)
-                    .WithFrequentRenterPoints(1)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(1)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -73,9 +73,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(3)
-                    .WithFrequentRenterPoints(1)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(1)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -88,9 +88,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(6)
-                    .WithFrequentRenterPoints(2)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(2)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -103,9 +103,9 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(9)
-                    .WithFrequentRenterPoints(2)
-                    .Build();
+                .WithRental(rental)
+                .WithFrequentRenterPoints(2)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -118,7 +118,7 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(1.5)
+                .WithRental(rental)
                 .WithFrequentRenterPoints(1)
                 .Build();
 
@@ -133,7 +133,7 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithMovieCharge(1.5)
+                .WithRental(rental)
                 .WithFrequentRenterPoints(1)
                 .Build();
 
@@ -148,7 +148,7 @@ namespace MovieRental.Tests.Models
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithMovieCharge(3)
+                .WithRental(rental)
                     .WithFrequentRenterPoints(1)
                     .Build();
 

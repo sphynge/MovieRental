@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MovieRental.Models;
 
 namespace MovieRental.Tests.Models
 {
@@ -17,11 +18,13 @@ namespace MovieRental.Tests.Models
             _customerName = CustomerBuilder.DefaultCustomerName;
         }
 
-        public StatementBuilder WithCustomerName(string customerName)
+        public StatementBuilder WithRental(Rental rental)
         {
-            this._customerName = customerName;
+            _movieNames.Add(rental.GetTitle());
+            _amounts.Add(rental.GetCharge());
             return this;
         }
+
 
         public StatementBuilder WithMovie(string movieName, double amount)
         {
