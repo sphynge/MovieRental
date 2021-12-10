@@ -2,24 +2,34 @@
 {
     public class Movie
     {
+        private int _priceCode;
         public const int Children = 2;
         public const int NewRelease = 1;
         public const int Regular = 0;
 
         public string Title { get; set; }
-        public int PriceCode { get; set; }
+
+        public void SetPriceCode(int value)
+        {
+            _priceCode = value;
+        }
+
+        public int GetPriceCode()
+        {
+            return _priceCode;
+        }
 
         public Movie(string title, int priceCode)
         {
             Title = title;
-            PriceCode = priceCode;
+            SetPriceCode(priceCode);
         }
 
         public double GetCharge(int daysRented)
         {
             double result = 0;
 
-            switch (this.PriceCode)
+            switch (this.GetPriceCode())
             {
                 case Movie.Regular:
                     result += 2;
@@ -43,7 +53,7 @@
 
         public int GetFrequentRenterPoints(int daysRented)
         {
-            return (PriceCode == NewRelease && daysRented > 1) ? 2 : 1;
+            return (GetPriceCode() == NewRelease && daysRented > 1) ? 2 : 1;
         }
     }
 }
