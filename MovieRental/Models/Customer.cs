@@ -26,15 +26,12 @@ namespace MovieRental.Models
 
         public string Statement()
         {
-            var result = "\nRental Record for " + GetName() + "\n";
-
-            foreach (var rental in _rentals)
-                result += new RentalView(rental).Display();
-            
-            result += "Amount owed is " + GetTotalAmount() + "\n";
-            result += "You earned " + GetTotalFrequentRenterPoints() + " frequent renter points\n";
-
-            return result;
+            return new StatementView(
+                GetName(), 
+                GetTotalAmount(), 
+                GetTotalFrequentRenterPoints(), 
+                _rentals)
+                .Display();
         }
 
         private double GetTotalAmount()
