@@ -3,7 +3,6 @@
     public class NewReleasePrice : Price
     {
         private const double Charge = 3;
-        //private const double ChargeExtra = 1;
         private const double DaysRentedThreshold = 1;
         private const int FrequentRenterPoints = 2;
         private const int DefaultRenterPoints = 1;
