@@ -2,25 +2,25 @@
 {
     public class Rental
     {
-        public Movie Movie { get; set; }
+        private readonly Movie _movie;
         public int DaysRented { get; set; }
 
         public Rental(Movie movie, int daysRented)
         {
-            Movie = movie;
+            _movie = movie;
             DaysRented = daysRented;
         }
 
         public double GetCharge()
         {
-            return Movie.GetCharge(DaysRented);
+            return _movie.GetCharge(DaysRented);
         }
 
         public int GetFrequentRenterPoints()
         {
-            return Movie.GetFrequentRenterPoints(DaysRented);
+            return _movie.GetFrequentRenterPoints(DaysRented);
         }
 
-        public string GetTitle() => Movie.GetTitle();
+        public string GetTitle() => _movie.GetTitle();
     }
 }
