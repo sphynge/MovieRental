@@ -7,13 +7,13 @@ namespace MovieRental.Tests.Models
         private Movie _movie;
         private int _daysRented;
 
-        public RentalBuilder Movie(Movie movie)
+        public RentalBuilder WithMovie(Movie movie)
         {
             this._movie = movie;
             return this;
         }
 
-        public RentalBuilder DaysRented(int daysRented)
+        public RentalBuilder WithDaysRented(int daysRented)
         {
             this._daysRented = daysRented;
             return this;

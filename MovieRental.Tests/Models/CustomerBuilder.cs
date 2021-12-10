@@ -13,13 +13,13 @@ namespace MovieRental.Tests.Models
             _rentals = new List<Rental>();
         }
 
-        public CustomerBuilder Name(string name)
+        public CustomerBuilder WithName(string name)
         {
             this._name = name;
             return this;
         }
 
-        public CustomerBuilder Rental(Rental rental)
+        public CustomerBuilder WithRental(Rental rental)
         {
             _rentals.Add(rental);
             return this;

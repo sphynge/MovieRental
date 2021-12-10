@@ -11,13 +11,13 @@ namespace MovieRental.Tests.Models
         {
             var customerName = "customerName";
             var customer = new CustomerBuilder()
-                .Name(customerName)
+                .WithName(customerName)
                 .Build();
 
             var expected = new StatementBuilder()
-                .CustomerName(customerName)
-                .TotalAmount(0)
-                .FrequentRenterPoints(0)
+                .WithCustomerName(customerName)
+                .WithTotalAmount(0)
+                .WithFrequentRenterPoints(0)
                 .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -27,16 +27,16 @@ namespace MovieRental.Tests.Models
         public void RegularRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Regular().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Regular().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 2)
-                    .TotalAmount(2)
-                    .FrequentRenterPoints(1)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 2)
+                    .WithTotalAmount(2)
+                    .WithFrequentRenterPoints(1)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -46,16 +46,16 @@ namespace MovieRental.Tests.Models
         public void RegularRental2Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Regular().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(2).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Regular().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(2).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 2)
-                    .TotalAmount(2)
-                    .FrequentRenterPoints(1)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 2)
+                    .WithTotalAmount(2)
+                    .WithFrequentRenterPoints(1)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -65,16 +65,16 @@ namespace MovieRental.Tests.Models
         public void RegularRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Regular().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Regular().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 3.5)
-                    .TotalAmount(3.5)
-                    .FrequentRenterPoints(1)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 3.5)
+                    .WithTotalAmount(3.5)
+                    .WithFrequentRenterPoints(1)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -84,16 +84,16 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).NewRelease().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 3)
-                    .TotalAmount(3)
-                    .FrequentRenterPoints(1)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 3)
+                    .WithTotalAmount(3)
+                    .WithFrequentRenterPoints(1)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -103,16 +103,16 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental2Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(2).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).NewRelease().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(2).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 6)
-                    .TotalAmount(6)
-                    .FrequentRenterPoints(2)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 6)
+                    .WithTotalAmount(6)
+                    .WithFrequentRenterPoints(2)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -122,16 +122,16 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).NewRelease().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 9)
-                    .TotalAmount(9)
-                    .FrequentRenterPoints(2)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 9)
+                    .WithTotalAmount(9)
+                    .WithFrequentRenterPoints(2)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -141,16 +141,16 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Children().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Children().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .CustomerName(customerName)
-                .Movie(movieName, 1.5)
-                .TotalAmount(1.5)
-                .FrequentRenterPoints(1)
+                .WithCustomerName(customerName)
+                .WithMovie(movieName, 1.5)
+                .WithTotalAmount(1.5)
+                .WithFrequentRenterPoints(1)
                 .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -160,16 +160,16 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Children().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Children().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .CustomerName(customerName)
-                .Movie(movieName, 1.5)
-                .TotalAmount(1.5)
-                .FrequentRenterPoints(1)
+                .WithCustomerName(customerName)
+                .WithMovie(movieName, 1.5)
+                .WithTotalAmount(1.5)
+                .WithFrequentRenterPoints(1)
                 .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -179,16 +179,16 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental4Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).Children().Build();
-            var rental = new RentalBuilder().Movie(movie).DaysRented(4).Build();
+            var movie = new MovieBuilder().WithTitle(movieName).Children().Build();
+            var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(4).Build();
             var customerName = "customerName";
-            var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
+            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(movieName, 3)
-                    .TotalAmount(3)
-                    .FrequentRenterPoints(1)
+                    .WithCustomerName(customerName)
+                    .WithMovie(movieName, 3)
+                    .WithTotalAmount(3)
+                    .WithFrequentRenterPoints(1)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());
@@ -198,32 +198,32 @@ namespace MovieRental.Tests.Models
         public void EachTypeRental10Days()
         {
             var regularMovieName = "regularMovieName";
-            var regularMovie = new MovieBuilder().Title(regularMovieName).Regular().Build();
-            var regularRental = new RentalBuilder().Movie(regularMovie).DaysRented(10).Build();
+            var regularMovie = new MovieBuilder().WithTitle(regularMovieName).Regular().Build();
+            var regularRental = new RentalBuilder().WithMovie(regularMovie).WithDaysRented(10).Build();
 
             var newReleaseMovieName = "newReleaseMovieName";
-            var newReleaseMovie = new MovieBuilder().Title(newReleaseMovieName).NewRelease().Build();
-            var newReleaseRental = new RentalBuilder().Movie(newReleaseMovie).DaysRented(10).Build();
+            var newReleaseMovie = new MovieBuilder().WithTitle(newReleaseMovieName).NewRelease().Build();
+            var newReleaseRental = new RentalBuilder().WithMovie(newReleaseMovie).WithDaysRented(10).Build();
 
             var childrensMovieName = "childrensMovieName";
-            var childrensMovie = new MovieBuilder().Title(childrensMovieName).Children().Build();
-            var childrensRental = new RentalBuilder().Movie(childrensMovie).DaysRented(10).Build();
+            var childrensMovie = new MovieBuilder().WithTitle(childrensMovieName).Children().Build();
+            var childrensRental = new RentalBuilder().WithMovie(childrensMovie).WithDaysRented(10).Build();
 
             var customerName = "customerName";
             var customer = new CustomerBuilder()
-                    .Name(customerName)
-                    .Rental(regularRental)
-                    .Rental(newReleaseRental)
-                    .Rental(childrensRental)
+                    .WithName(customerName)
+                    .WithRental(regularRental)
+                    .WithRental(newReleaseRental)
+                    .WithRental(childrensRental)
                     .Build();
 
             var expected = new StatementBuilder()
-                    .CustomerName(customerName)
-                    .Movie(regularMovieName, 14)
-                    .Movie(newReleaseMovieName, 30)
-                    .Movie(childrensMovieName, 12)
-                    .TotalAmount(56)
-                    .FrequentRenterPoints(4)
+                    .WithCustomerName(customerName)
+                    .WithMovie(regularMovieName, 14)
+                    .WithMovie(newReleaseMovieName, 30)
+                    .WithMovie(childrensMovieName, 12)
+                    .WithTotalAmount(56)
+                    .WithFrequentRenterPoints(4)
                     .Build();
 
             Assert.AreEqual(expected, customer.Statement());

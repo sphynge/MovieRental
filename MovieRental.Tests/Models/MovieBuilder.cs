@@ -31,7 +31,7 @@ namespace MovieRental.Tests.Models
             return this;
         }
 
-        public MovieBuilder Title(string title)
+        public MovieBuilder WithTitle(string title)
         {
             this._title = title;
             return this;

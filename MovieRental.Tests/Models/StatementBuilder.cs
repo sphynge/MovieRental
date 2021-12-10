@@ -16,26 +16,26 @@ namespace MovieRental.Tests.Models
             _amounts = new List<double>();
         }
 
-        public StatementBuilder CustomerName(string customerName)
+        public StatementBuilder WithCustomerName(string customerName)
         {
             this._customerName = customerName;
             return this;
         }
 
-        public StatementBuilder Movie(string movieName, double amount)
+        public StatementBuilder WithMovie(string movieName, double amount)
         {
             _movieNames.Add(movieName);
             _amounts.Add(amount);
             return this;
         }
 
-        public StatementBuilder TotalAmount(double totalAmount)
+        public StatementBuilder WithTotalAmount(double totalAmount)
         {
             this._totalAmount = totalAmount;
             return this;
         }
 
-        public StatementBuilder FrequentRenterPoints(int frequentRenterPoints)
+        public StatementBuilder WithFrequentRenterPoints(int frequentRenterPoints)
         {
             this._frequentRenterPoints = frequentRenterPoints;
             return this;
