@@ -29,6 +29,11 @@ namespace MovieRental.Tests.Models
             return this;
         }
 
+        public StatementBuilder WithMovieCharge(double amount)
+        {
+            return WithMovie(MovieBuilder.DefaultMovieName, amount);
+        }
+
         public StatementBuilder WithTotalAmount(double totalAmount)
         {
             this._totalAmount = totalAmount;

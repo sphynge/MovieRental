@@ -5,7 +5,7 @@ namespace MovieRental.Tests.Models
 {
     internal class MovieBuilder
     {
-        private const string DefaultMovieName = "movieName";
+        public const string DefaultMovieName = "movieName";
 
         private string _title;
         private Price _price;
