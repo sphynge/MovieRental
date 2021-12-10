@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MovieRental.Views;
 
 namespace MovieRental.Models
 {
@@ -28,7 +29,7 @@ namespace MovieRental.Models
             var result = "\nRental Record for " + GetName() + "\n";
 
             foreach (var rental in _rentals)
-                result += "\t" + rental.GetTitle() + "\t" + rental.GetCharge() + "\n";
+                result += new RentalView(rental).Display();
             
             result += "Amount owed is " + GetTotalAmount() + "\n";
             result += "You earned " + GetTotalFrequentRenterPoints() + " frequent renter points\n";
