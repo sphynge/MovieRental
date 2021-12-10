@@ -7,19 +7,13 @@ namespace MovieRental.Tests.Models
     {
         public const string DefaultCustomerName = "customerName";
 
-        private string _name;
+        private readonly string _name;
         private readonly List<Rental> _rentals;
 
         public CustomerBuilder()
         {
             this._name = DefaultCustomerName;
             this._rentals = new List<Rental>();
-        }
-
-        public CustomerBuilder WithName(string name)
-        {
-            this._name = name;
-            return this;
         }
 
         public CustomerBuilder WithRental(Rental rental)
