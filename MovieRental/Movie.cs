@@ -4,12 +4,12 @@ namespace MovieRental
 {
     public class Movie
     {
-        public string Title { get; set; }
+        private readonly string _title;
         private readonly Price _price;
 
         public Movie(string title, Price price)
         {
-            Title = title;
+            _title = title;
             _price = price;
         }
 
@@ -23,6 +23,6 @@ namespace MovieRental
             return _price.GetFrequentRenterPoints(daysRented);
         }
 
-        public string GetTitle() => Title;
+        public string GetTitle() => _title;
     }
 }
