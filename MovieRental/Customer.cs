@@ -31,10 +31,7 @@ namespace MovieRental
 
             foreach (var rental in _rentals)
             {
-                frequentRenterPoints++;
-
-                if ((rental.Movie.PriceCode == Movie.NewRelease) && rental.DaysRented > 1)
-                    frequentRenterPoints++;
+                frequentRenterPoints += rental.GetFrequentRenterPoints();
 
                 result += "\t" + rental.Movie.Title + "\t" + rental.GetCharge() + "\n";
                 totalAmount += rental.GetCharge();
@@ -45,5 +42,7 @@ namespace MovieRental
 
             return result;
         }
+
+        
     }
 }
