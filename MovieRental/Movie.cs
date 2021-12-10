@@ -4,41 +4,17 @@ namespace MovieRental
 {
     public class Movie
     {
-        private int _priceCode;
         public const int Children = 2;
         public const int NewRelease = 1;
         public const int Regular = 0;
 
         public string Title { get; set; }
-        public Price _price;
+        private readonly Price _price;
 
-        public void SetPriceCode(int priceCode)
-        {
-            switch (priceCode)
-            {
-                case Movie.Children:
-                    _price = new ChildrenPrice();
-                    break;
-
-                case Movie.NewRelease:
-                    _price = new NewReleasePrice();
-                    break;
-
-                default:
-                    _price = new RegularPrice();
-                    break;
-            }
-        }
-
-        public int GetPriceCode()
-        {
-            return _price.GetPriceCode();
-        }
-
-        public Movie(string title, int priceCode)
+        public Movie(string title, Price price)
         {
             Title = title;
-            SetPriceCode(priceCode);
+            _price = price;
         }
 
         public double GetCharge(int daysRented)

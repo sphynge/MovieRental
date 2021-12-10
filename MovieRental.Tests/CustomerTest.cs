@@ -9,8 +9,13 @@ namespace MovieRental.Tests
         [TestMethod]
         public void WithoutRentals()
         {
-            var customer = new CustomerBuilder().Build();
+            var customerName = "customerName";
+            var customer = new CustomerBuilder()
+                .Name(customerName)
+                .Build();
+
             var expected = new StatementBuilder()
+                .CustomerName(customerName)
                 .TotalAmount(0)
                 .FrequentRenterPoints(0)
                 .Build();
@@ -22,7 +27,7 @@ namespace MovieRental.Tests
         public void RegularRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Regular).Build();
+            var movie = new MovieBuilder().Title(movieName).Regular().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -41,7 +46,7 @@ namespace MovieRental.Tests
         public void RegularRental2Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Regular).Build();
+            var movie = new MovieBuilder().Title(movieName).Regular().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(2).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -60,7 +65,7 @@ namespace MovieRental.Tests
         public void RegularRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Regular).Build();
+            var movie = new MovieBuilder().Title(movieName).Regular().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -79,7 +84,7 @@ namespace MovieRental.Tests
         public void NewReleaseRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.NewRelease).Build();
+            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -98,7 +103,7 @@ namespace MovieRental.Tests
         public void NewReleaseRental2Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.NewRelease).Build();
+            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(2).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -117,7 +122,7 @@ namespace MovieRental.Tests
         public void NewReleaseRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.NewRelease).Build();
+            var movie = new MovieBuilder().Title(movieName).NewRelease().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -136,7 +141,7 @@ namespace MovieRental.Tests
         public void ChildrenRental1Day()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Children).Build();
+            var movie = new MovieBuilder().Title(movieName).Children().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(1).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -155,7 +160,7 @@ namespace MovieRental.Tests
         public void ChildrenRental3Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Children).Build();
+            var movie = new MovieBuilder().Title(movieName).Children().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(3).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -174,7 +179,7 @@ namespace MovieRental.Tests
         public void ChildrenRental4Days()
         {
             var movieName = "movieName";
-            var movie = new MovieBuilder().Title(movieName).PriceCode(Movie.Children).Build();
+            var movie = new MovieBuilder().Title(movieName).Children().Build();
             var rental = new RentalBuilder().Movie(movie).DaysRented(4).Build();
             var customerName = "customerName";
             var customer = new CustomerBuilder().Name(customerName).Rental(rental).Build();
@@ -193,15 +198,15 @@ namespace MovieRental.Tests
         public void EachTypeRental10Days()
         {
             var regularMovieName = "regularMovieName";
-            var regularMovie = new MovieBuilder().Title(regularMovieName).PriceCode(Movie.Regular).Build();
+            var regularMovie = new MovieBuilder().Title(regularMovieName).Regular().Build();
             var regularRental = new RentalBuilder().Movie(regularMovie).DaysRented(10).Build();
 
             var newReleaseMovieName = "newReleaseMovieName";
-            var newReleaseMovie = new MovieBuilder().Title(newReleaseMovieName).PriceCode(Movie.NewRelease).Build();
+            var newReleaseMovie = new MovieBuilder().Title(newReleaseMovieName).NewRelease().Build();
             var newReleaseRental = new RentalBuilder().Movie(newReleaseMovie).DaysRented(10).Build();
 
             var childrensMovieName = "childrensMovieName";
-            var childrensMovie = new MovieBuilder().Title(childrensMovieName).PriceCode(Movie.Children).Build();
+            var childrensMovie = new MovieBuilder().Title(childrensMovieName).Children().Build();
             var childrensRental = new RentalBuilder().Movie(childrensMovie).DaysRented(10).Build();
 
             var customerName = "customerName";
