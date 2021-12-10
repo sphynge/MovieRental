@@ -48,7 +48,7 @@ namespace MovieRental
 
         public int GetFrequentRenterPoints(int daysRented)
         {
-            return (GetPriceCode() == NewRelease && daysRented > 1) ? 2 : 1;
+            return _price.GetFrequentRenterPoints(daysRented);
         }
     }
 }

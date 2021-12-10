@@ -14,5 +14,10 @@
                 result += (daysRented - 2) * 1.5;
             return result;
         }
+
+        public override int GetFrequentRenterPoints(int daysRented)
+        {
+            return 1;
+        }
     }
 }

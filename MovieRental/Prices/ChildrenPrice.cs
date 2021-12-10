@@ -16,5 +16,10 @@
 
             return result;
         }
+
+        public override int GetFrequentRenterPoints(int daysRented)
+        {
+            return 1;
+        }
     }
 }
