@@ -31,15 +31,13 @@ namespace MovieRental
 
             foreach (var rental in _rentals)
             {
-                var thisAmount = rental.GetCharge();
-
                 frequentRenterPoints++;
 
                 if ((rental.Movie.PriceCode == Movie.NewRelease) && rental.DaysRented > 1)
                     frequentRenterPoints++;
 
-                result += "\t" + rental.Movie.Title + "\t" + thisAmount + "\n";
-                totalAmount += thisAmount;
+                result += "\t" + rental.Movie.Title + "\t" + rental.GetCharge() + "\n";
+                totalAmount += rental.GetCharge();
             }
 
             result += "Amount owed is " + totalAmount + "\n";
