@@ -31,7 +31,7 @@ namespace MovieRental
 
             foreach (var rental in _rentals)
             {
-                var thisAmount = AmountFor(rental);
+                var thisAmount = rental.GetCharge();
 
                 frequentRenterPoints++;
 
@@ -46,30 +46,6 @@ namespace MovieRental
             result += "You earned " + frequentRenterPoints + " frequent renter points\n";
 
             return result;
-        }
-
-        private static double AmountFor(Rental rental)
-        {
-            double thisAmount = 0;
-
-            switch (rental.Movie.PriceCode)
-            {
-                case Movie.Regular:
-                    thisAmount += 2;
-                    if (rental.DaysRented > 2)
-                        thisAmount += (rental.DaysRented - 2) * 1.5;
-                    break;
-                case Movie.NewRelease:
-                    thisAmount += rental.DaysRented * 3;
-                    break;
-                case Movie.Children:
-                    thisAmount += 1.5;
-                    if (rental.DaysRented > 3)
-                        thisAmount += (rental.DaysRented - 3) * 1.5;
-                    break;
-            }
-
-            return thisAmount;
         }
     }
 }
