@@ -16,7 +16,6 @@ namespace MovieRental.Tests.Models
 
             var expected = new StatementBuilder()
                 .WithCustomerName(customerName)
-                .WithTotalAmount(0)
                 .WithFrequentRenterPoints(0)
                 .Build();
 
@@ -36,7 +35,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(2)
-                    .WithTotalAmount(2)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -55,7 +53,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(2)
-                    .WithTotalAmount(2)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -74,7 +71,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(3.5)
-                    .WithTotalAmount(3.5)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -93,7 +89,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(3)
-                    .WithTotalAmount(3)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -112,7 +107,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(6)
-                    .WithTotalAmount(6)
                     .WithFrequentRenterPoints(2)
                     .Build();
 
@@ -131,7 +125,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(9)
-                    .WithTotalAmount(9)
                     .WithFrequentRenterPoints(2)
                     .Build();
 
@@ -150,7 +143,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                 .WithCustomerName(customerName)
                 .WithMovieCharge(1.5)
-                .WithTotalAmount(1.5)
                 .WithFrequentRenterPoints(1)
                 .Build();
 
@@ -169,7 +161,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                 .WithCustomerName(customerName)
                 .WithMovieCharge(1.5)
-                .WithTotalAmount(1.5)
                 .WithFrequentRenterPoints(1)
                 .Build();
 
@@ -188,7 +179,6 @@ namespace MovieRental.Tests.Models
             var expected = new StatementBuilder()
                     .WithCustomerName(customerName)
                     .WithMovieCharge(3)
-                    .WithTotalAmount(3)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -223,7 +213,6 @@ namespace MovieRental.Tests.Models
                     .WithMovie(regularMovieName, 14)
                     .WithMovie(newReleaseMovieName, 30)
                     .WithMovie(childrensMovieName, 12)
-                    .WithTotalAmount(56)
                     .WithFrequentRenterPoints(4)
                     .Build();
 
