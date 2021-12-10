@@ -4,53 +4,53 @@ namespace MovieRental.Tests.Models
 {
     internal class StatementBuilder
     {
-        private string customerName;
-        private List<string> movieNames;
-        private List<double> amounts;
-        private double totalAmount;
-        private int frequentRenterPoints;
+        private string _customerName;
+        private readonly List<string> _movieNames;
+        private readonly List<double> _amounts;
+        private double _totalAmount;
+        private int _frequentRenterPoints;
 
         public StatementBuilder()
         {
-            movieNames = new List<string>();
-            amounts = new List<double>();
+            _movieNames = new List<string>();
+            _amounts = new List<double>();
         }
 
         public StatementBuilder CustomerName(string customerName)
         {
-            this.customerName = customerName;
+            this._customerName = customerName;
             return this;
         }
 
         public StatementBuilder Movie(string movieName, double amount)
         {
-            movieNames.Add(movieName);
-            amounts.Add(amount);
+            _movieNames.Add(movieName);
+            _amounts.Add(amount);
             return this;
         }
 
         public StatementBuilder TotalAmount(double totalAmount)
         {
-            this.totalAmount = totalAmount;
+            this._totalAmount = totalAmount;
             return this;
         }
 
         public StatementBuilder FrequentRenterPoints(int frequentRenterPoints)
         {
-            this.frequentRenterPoints = frequentRenterPoints;
+            this._frequentRenterPoints = frequentRenterPoints;
             return this;
         }
 
         public string Build()
         {
-            var result = "\nRental Record for " + customerName + "\n";
-            for (var i = 0; i < movieNames.Count; i++)
+            var result = "\nRental Record for " + _customerName + "\n";
+            for (var i = 0; i < _movieNames.Count; i++)
             {
-                result += "\t" + movieNames[i] + "\t" + amounts[i] + "\n";
+                result += "\t" + _movieNames[i] + "\t" + _amounts[i] + "\n";
             }
 
-            result += "Amount owed is " + totalAmount + "\n";
-            result += "You earned " + frequentRenterPoints + " frequent renter points\n";
+            result += "Amount owed is " + _totalAmount + "\n";
+            result += "You earned " + _frequentRenterPoints + " frequent renter points\n";
             return result;
         }
     }
