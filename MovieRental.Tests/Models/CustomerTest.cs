@@ -21,7 +21,6 @@ namespace MovieRental.Tests.Models
             Assert.AreEqual(expected, customer.Statement());
         }
 
-
         [TestMethod]
         public void EachTypeRental10Days()
         {
