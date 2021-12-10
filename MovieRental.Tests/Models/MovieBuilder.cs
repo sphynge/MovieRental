@@ -43,5 +43,20 @@ namespace MovieRental.Tests.Models
         {
             return new Movie(_title, _price);
         }
+
+        public static Movie BuildChildren()
+        {
+            return new Movie("Children movie", new ChildrenPrice());
+        }
+
+        public static Movie BuildRegular()
+        {
+            return new Movie("Regular movie", new RegularPrice());
+        }
+
+        public static Movie BuildNewRelease()
+        {
+            return new Movie("New release movie", new NewReleasePrice());
+        }
     }
 }
