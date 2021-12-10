@@ -6,7 +6,7 @@ namespace MovieRental.Tests.Models
 {
     internal class StatementBuilder
     {
-        private string _customerName;
+        private readonly string _customerName;
         private readonly List<string> _movieNames;
         private readonly List<double> _amounts;
         private int _frequentRenterPoints;
@@ -33,19 +33,6 @@ namespace MovieRental.Tests.Models
                 _amounts.Add(rental.GetCharge());
             }
             return this;
-        }
-
-
-        public StatementBuilder WithMovie(string movieName, double amount)
-        {
-            _movieNames.Add(movieName);
-            _amounts.Add(amount);
-            return this;
-        }
-
-        public StatementBuilder WithMovieCharge(double amount)
-        {
-            return WithMovie(MovieBuilder.DefaultMovieName, amount);
         }
 
         public StatementBuilder WithFrequentRenterPoints(int frequentRenterPoints)

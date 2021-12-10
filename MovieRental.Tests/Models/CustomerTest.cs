@@ -25,7 +25,7 @@ namespace MovieRental.Tests.Models
         public void RegularRental1Day()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildRegular())
+                .WithMovie(MovieBuilder.Regular())
                 .WithDaysRented(1)
                 .Build();
 
@@ -43,7 +43,7 @@ namespace MovieRental.Tests.Models
         public void RegularRental2Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildRegular())
+                .WithMovie(MovieBuilder.Regular())
                 .WithDaysRented(2)
                 .Build();
 
@@ -61,7 +61,7 @@ namespace MovieRental.Tests.Models
         public void RegularRental3Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildRegular())
+                .WithMovie(MovieBuilder.Regular())
                 .WithDaysRented(3)
                 .Build();
 
@@ -79,7 +79,7 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental1Day()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildNewRelease())
+                .WithMovie(MovieBuilder.NewRelease())
                 .WithDaysRented(1)
                 .Build();
 
@@ -97,7 +97,7 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental2Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildNewRelease())
+                .WithMovie(MovieBuilder.NewRelease())
                 .WithDaysRented(2)
                 .Build();
 
@@ -115,7 +115,7 @@ namespace MovieRental.Tests.Models
         public void NewReleaseRental3Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildNewRelease())
+                .WithMovie(MovieBuilder.NewRelease())
                 .WithDaysRented(3)
                 .Build();
 
@@ -133,7 +133,7 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental1Day()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildChildren())
+                .WithMovie(MovieBuilder.Children())
                 .WithDaysRented(1)
                 .Build();
             var customer = new CustomerBuilder().WithRental(rental).Build();
@@ -150,7 +150,7 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental3Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildChildren())
+                .WithMovie(MovieBuilder.Children())
                 .WithDaysRented(3)
                 .Build();
 
@@ -168,7 +168,7 @@ namespace MovieRental.Tests.Models
         public void ChildrenRental4Days()
         {
             var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.BuildChildren())
+                .WithMovie(MovieBuilder.Children())
                 .WithDaysRented(4)
                 .Build();
 
@@ -185,9 +185,9 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void EachTypeRental10Days()
         {
-            var regularRental = new RentalBuilder().WithMovie(MovieBuilder.BuildRegular()).WithDaysRented(10).Build();
-            var newReleaseRental = new RentalBuilder().WithMovie(MovieBuilder.BuildNewRelease()).WithDaysRented(10).Build();
-            var childrensRental = new RentalBuilder().WithMovie(MovieBuilder.BuildChildren()).WithDaysRented(10).Build();
+            var regularRental = new RentalBuilder().WithMovie(MovieBuilder.Regular()).WithDaysRented(10).Build();
+            var newReleaseRental = new RentalBuilder().WithMovie(MovieBuilder.NewRelease()).WithDaysRented(10).Build();
+            var childrensRental = new RentalBuilder().WithMovie(MovieBuilder.Children()).WithDaysRented(10).Build();
 
             var rentals = new List<Rental>
             {

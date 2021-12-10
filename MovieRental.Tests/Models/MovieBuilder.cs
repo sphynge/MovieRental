@@ -3,58 +3,20 @@ using MovieRental.Models.Prices;
 
 namespace MovieRental.Tests.Models
 {
-    internal class MovieBuilder
+    internal static class MovieBuilder
     {
-        public const string DefaultMovieName = "movieName";
 
-        private string _title;
-        private Price _price;
-
-        public MovieBuilder()
-        {
-            _title = DefaultMovieName;
-        }
-
-        public MovieBuilder NewRelease()
-        {
-            _price = new NewReleasePrice();
-            return this;
-        }
-
-        public MovieBuilder Children()
-        {
-            _price = new ChildrenPrice();
-            return this;
-        }
-        
-        public MovieBuilder Regular()
-        {
-            _price = new RegularPrice();
-            return this;
-        }
-
-        public MovieBuilder WithTitle(string title)
-        {
-            this._title = title;
-            return this;
-        }
-
-        public Movie Build()
-        {
-            return new Movie(_title, _price);
-        }
-
-        public static Movie BuildChildren()
+        public static Movie Children()
         {
             return new Movie("Children movie", new ChildrenPrice());
         }
 
-        public static Movie BuildRegular()
+        public static Movie Regular()
         {
             return new Movie("Regular movie", new RegularPrice());
         }
 
-        public static Movie BuildNewRelease()
+        public static Movie NewRelease()
         {
             return new Movie("New release movie", new NewReleasePrice());
         }
