@@ -22,6 +22,16 @@ namespace MovieRental.Tests.Models
             return this;
         }
 
+        public CustomerBuilder WithRentals(IEnumerable<Rental> rentals)
+        {
+            foreach (var rental in rentals)
+            {
+                _rentals.Add(rental);
+            }
+            return this;
+        }
+
+
         public Customer Build()
         {
             var customer = new Customer(_name);

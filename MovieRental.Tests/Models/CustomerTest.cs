@@ -169,8 +169,8 @@ namespace MovieRental.Tests.Models
 
             var expected = new StatementBuilder()
                 .WithRental(rental)
-                    .WithFrequentRenterPoints(expectedPoints)
-                    .Build();
+                .WithFrequentRenterPoints(expectedPoints)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
@@ -181,21 +181,15 @@ namespace MovieRental.Tests.Models
             const int daysRented = 10;
             const int expectedPoints = 4;
 
-            var regularRental = RentalBuilder.Regular(daysRented);
-            var newReleaseRental = RentalBuilder.NewRelease(daysRented);
-            var childrenRental = RentalBuilder.Children(daysRented);
-
             var rentals = new List<Rental>
             {
-                regularRental,
-                newReleaseRental,
-                childrenRental
+                RentalBuilder.Regular(daysRented),
+                RentalBuilder.NewRelease(daysRented),
+                RentalBuilder.Children(daysRented)
             };
 
             var customer = new CustomerBuilder()
-                    .WithRental(regularRental)
-                    .WithRental(newReleaseRental)
-                    .WithRental(childrenRental)
+                    .WithRentals(rentals)
                     .Build();
 
             var expected = new StatementBuilder()
