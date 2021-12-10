@@ -5,12 +5,15 @@ namespace MovieRental.Tests.Models
 {
     internal class CustomerBuilder
     {
+        public const string DefaultCustomerName = "customerName";
+
         private string _name;
         private readonly List<Rental> _rentals;
 
         public CustomerBuilder()
         {
-            _rentals = new List<Rental>();
+            this._name = DefaultCustomerName;
+            this._rentals = new List<Rental>();
         }
 
         public CustomerBuilder WithName(string name)

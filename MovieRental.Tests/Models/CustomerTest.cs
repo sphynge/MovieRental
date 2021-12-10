@@ -9,13 +9,9 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void WithoutRentals()
         {
-            var customerName = "customerName";
-            var customer = new CustomerBuilder()
-                .WithName(customerName)
-                .Build();
+            var customer = new CustomerBuilder().Build();
 
             var expected = new StatementBuilder()
-                .WithCustomerName(customerName)
                 .WithFrequentRenterPoints(0)
                 .Build();
 
@@ -28,12 +24,10 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Regular().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(2)
+                .WithMovieCharge(2)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -45,12 +39,11 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Regular().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(2).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(2)
+                .WithMovieCharge(2)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -62,12 +55,10 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Regular().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(3.5)
+                .WithMovieCharge(3.5)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -79,12 +70,10 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().NewRelease().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(3)
+                .WithMovieCharge(3)
                     .WithFrequentRenterPoints(1)
                     .Build();
 
@@ -96,12 +85,10 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().NewRelease().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(2).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(6)
+                .WithMovieCharge(6)
                     .WithFrequentRenterPoints(2)
                     .Build();
 
@@ -113,12 +100,10 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().NewRelease().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
-                    .WithMovieCharge(9)
+                .WithMovieCharge(9)
                     .WithFrequentRenterPoints(2)
                     .Build();
 
@@ -130,11 +115,9 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Children().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(1).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithCustomerName(customerName)
                 .WithMovieCharge(1.5)
                 .WithFrequentRenterPoints(1)
                 .Build();
@@ -147,11 +130,9 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Children().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(3).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                .WithCustomerName(customerName)
                 .WithMovieCharge(1.5)
                 .WithFrequentRenterPoints(1)
                 .Build();
@@ -164,11 +145,9 @@ namespace MovieRental.Tests.Models
         {
             var movie = new MovieBuilder().Children().Build();
             var rental = new RentalBuilder().WithMovie(movie).WithDaysRented(4).Build();
-            var customerName = "customerName";
-            var customer = new CustomerBuilder().WithName(customerName).WithRental(rental).Build();
+            var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
                     .WithMovieCharge(3)
                     .WithFrequentRenterPoints(1)
                     .Build();
@@ -191,16 +170,13 @@ namespace MovieRental.Tests.Models
             var childrensMovie = new MovieBuilder().WithTitle(childrensMovieName).Children().Build();
             var childrensRental = new RentalBuilder().WithMovie(childrensMovie).WithDaysRented(10).Build();
 
-            var customerName = "customerName";
             var customer = new CustomerBuilder()
-                    .WithName(customerName)
                     .WithRental(regularRental)
                     .WithRental(newReleaseRental)
                     .WithRental(childrensRental)
                     .Build();
 
             var expected = new StatementBuilder()
-                    .WithCustomerName(customerName)
                     .WithMovie(regularMovieName, 14)
                     .WithMovie(newReleaseMovieName, 30)
                     .WithMovie(childrensMovieName, 12)

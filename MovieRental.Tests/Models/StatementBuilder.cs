@@ -14,6 +14,7 @@ namespace MovieRental.Tests.Models
         {
             _movieNames = new List<string>();
             _amounts = new List<double>();
+            _customerName = CustomerBuilder.DefaultCustomerName;
         }
 
         public StatementBuilder WithCustomerName(string customerName)
