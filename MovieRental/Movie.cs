@@ -4,10 +4,6 @@ namespace MovieRental
 {
     public class Movie
     {
-        public const int Children = 2;
-        public const int NewRelease = 1;
-        public const int Regular = 0;
-
         public string Title { get; set; }
         private readonly Price _price;
 

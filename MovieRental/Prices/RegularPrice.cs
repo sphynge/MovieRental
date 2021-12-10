@@ -2,11 +2,6 @@
 {
     public class RegularPrice : Price
     {
-        public override int GetPriceCode()
-        {
-            return Movie.Regular;
-        }
-
         public override double GetCharge(int daysRented)
         {
             var result = 2.0;
