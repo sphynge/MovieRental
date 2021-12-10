@@ -22,5 +22,7 @@ namespace MovieRental
         {
             return _price.GetFrequentRenterPoints(daysRented);
         }
+
+        public string GetTitle() => Title;
     }
 }

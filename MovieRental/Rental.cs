@@ -20,5 +20,7 @@
         {
             return Movie.GetFrequentRenterPoints(DaysRented);
         }
+
+        public string GetTitle() => Movie.GetTitle();
     }
 }

@@ -28,7 +28,7 @@ namespace MovieRental
             var result = "\nRental Record for " + GetName() + "\n";
 
             foreach (var rental in _rentals)
-                result += "\t" + rental.Movie.Title + "\t" + rental.GetCharge() + "\n";
+                result += "\t" + rental.GetTitle() + "\t" + rental.GetCharge() + "\n";
             
             result += "Amount owed is " + GetTotalAmount() + "\n";
             result += "You earned " + GetTotalFrequentRenterPoints() + " frequent renter points\n";
