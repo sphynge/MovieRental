@@ -40,5 +40,10 @@
 
             return result;
         }
+
+        public int GetFrequentRenterPoints(int daysRented)
+        {
+            return (PriceCode == NewRelease && daysRented > 1) ? 2 : 1;
+        }
     }
 }
