@@ -1,4 +1,6 @@
-﻿namespace MovieRental
+﻿using MovieRental.Prices;
+
+namespace MovieRental
 {
     public class Movie
     {
@@ -8,15 +10,29 @@
         public const int Regular = 0;
 
         public string Title { get; set; }
+        public Price _price;
 
-        public void SetPriceCode(int value)
+        public void SetPriceCode(int priceCode)
         {
-            _priceCode = value;
+            switch (priceCode)
+            {
+                case Movie.Children:
+                    _price = new ChildrenPrice();
+                    break;
+
+                case Movie.NewRelease:
+                    _price = new NewReleasePrice();
+                    break;
+
+                default:
+                    _price = new RegularPrice();
+                    break;
+            }
         }
 
         public int GetPriceCode()
         {
-            return _priceCode;
+            return _price.GetPriceCode();
         }
 
         public Movie(string title, int priceCode)
@@ -27,28 +43,7 @@
 
         public double GetCharge(int daysRented)
         {
-            double result = 0;
-
-            switch (this.GetPriceCode())
-            {
-                case Movie.Regular:
-                    result += 2;
-                    if (daysRented > 2)
-                        result += (daysRented - 2) * 1.5;
-                    break;
-
-                case Movie.NewRelease:
-                    result += daysRented * 3;
-                    break;
-
-                case Movie.Children:
-                    result += 1.5;
-                    if (daysRented > 3)
-                        result += (daysRented - 3) * 1.5;
-                    break;
-            }
-
-            return result;
+            return _price.GetCharge(daysRented);
         }
 
         public int GetFrequentRenterPoints(int daysRented)
