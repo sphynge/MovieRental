@@ -25,7 +25,7 @@ namespace MovieRental
 
         public string Statement()
         {
-            var totalAmount = 0.0;
+            //var totalAmount = 0.0;
             var frequentRenterPoints = 0;
             var result = "\nRental Record for " + GetName() + "\n";
 
@@ -34,15 +34,24 @@ namespace MovieRental
                 frequentRenterPoints += rental.GetFrequentRenterPoints();
 
                 result += "\t" + rental.Movie.Title + "\t" + rental.GetCharge() + "\n";
-                totalAmount += rental.GetCharge();
+                //totalAmount += rental.GetCharge();
             }
 
-            result += "Amount owed is " + totalAmount + "\n";
+            result += "Amount owed is " + GetTotalAmount() + "\n";
             result += "You earned " + frequentRenterPoints + " frequent renter points\n";
 
             return result;
         }
 
+        private double GetTotalAmount()
+        {
+            var result = 0.0;
+
+            foreach (var rental in _rentals)
+                result += rental.GetCharge();
+
+            return result;
+        }
         
     }
 }
