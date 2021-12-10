@@ -25,6 +25,16 @@ namespace MovieRental.Tests.Models
             return this;
         }
 
+        public StatementBuilder WithRentals(IEnumerable<Rental> rentals)
+        {
+            foreach (var rental in rentals)
+            {
+                _movieNames.Add(rental.GetTitle());
+                _amounts.Add(rental.GetCharge());
+            }
+            return this;
+        }
+
 
         public StatementBuilder WithMovie(string movieName, double amount)
         {

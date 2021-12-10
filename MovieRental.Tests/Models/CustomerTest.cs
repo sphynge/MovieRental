@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MovieRental.Models;
 
 namespace MovieRental.Tests.Models
 {
@@ -170,6 +172,13 @@ namespace MovieRental.Tests.Models
             var childrensMovie = new MovieBuilder().WithTitle(childrensMovieName).Children().Build();
             var childrensRental = new RentalBuilder().WithMovie(childrensMovie).WithDaysRented(10).Build();
 
+            var rentals = new List<Rental>
+            {
+                regularRental,
+                newReleaseRental,
+                childrensRental
+            };
+
             var customer = new CustomerBuilder()
                     .WithRental(regularRental)
                     .WithRental(newReleaseRental)
@@ -177,11 +186,9 @@ namespace MovieRental.Tests.Models
                     .Build();
 
             var expected = new StatementBuilder()
-                    .WithMovie(regularMovieName, 14)
-                    .WithMovie(newReleaseMovieName, 30)
-                    .WithMovie(childrensMovieName, 12)
-                    .WithFrequentRenterPoints(4)
-                    .Build();
+                .WithRentals(rentals)
+                .WithFrequentRenterPoints(4)
+                .Build();
 
             Assert.AreEqual(expected, customer.Statement());
         }
