@@ -1,6 +1,7 @@
-﻿using MovieRental.Prices;
+﻿using MovieRental.Models;
+using MovieRental.Models.Prices;
 
-namespace MovieRental.Tests
+namespace MovieRental.Tests.Models
 {
     internal class MovieBuilder
     {

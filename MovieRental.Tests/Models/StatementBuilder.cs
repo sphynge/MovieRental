@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MovieRental.Tests
+namespace MovieRental.Tests.Models
 {
     internal class StatementBuilder
     {

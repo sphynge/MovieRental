@@ -1,4 +1,6 @@
-﻿namespace MovieRental.Tests
+﻿using MovieRental.Models;
+
+namespace MovieRental.Tests.Models
 {
     internal class RentalBuilder
     {

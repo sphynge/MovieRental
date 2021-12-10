@@ -1,6 +1,6 @@
-﻿using MovieRental.Prices;
+﻿using MovieRental.Models.Prices;
 
-namespace MovieRental
+namespace MovieRental.Models
 {
     public class Movie
     {

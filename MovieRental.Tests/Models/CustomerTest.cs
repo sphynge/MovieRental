@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MovieRental.Tests
+namespace MovieRental.Tests.Models
 {
     [TestClass]
     public class CustomerTest

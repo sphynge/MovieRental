@@ -1,4 +1,4 @@
-﻿namespace MovieRental.Prices
+﻿namespace MovieRental.Models.Prices
 {
     public class RegularPrice : Price
     {

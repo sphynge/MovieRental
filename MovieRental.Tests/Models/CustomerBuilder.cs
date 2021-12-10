@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using MovieRental.Models;
 
-namespace MovieRental.Tests
+namespace MovieRental.Tests.Models
 {
     internal class CustomerBuilder
     {

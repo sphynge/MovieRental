@@ -1,4 +1,4 @@
-﻿namespace MovieRental
+﻿namespace MovieRental.Models
 {
     public class Rental
     {

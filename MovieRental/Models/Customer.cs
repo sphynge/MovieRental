@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MovieRental
+namespace MovieRental.Models
 {
     public class Customer
     {
