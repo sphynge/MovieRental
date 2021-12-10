@@ -23,5 +23,20 @@ namespace MovieRental.Tests.Models
         {
             return new Rental(_movie, _daysRented);
         }
+
+        public static Rental Regular(int daysRented)
+        {
+            return new Rental(MovieBuilder.Regular(), daysRented);
+        }
+
+        public static Rental NewRelease(int daysRented)
+        {
+            return new Rental(MovieBuilder.NewRelease(), daysRented);
+        }
+
+        public static Rental Children(int daysRented)
+        {
+            return new Rental(MovieBuilder.Children(), daysRented);
+        }
     }
 }

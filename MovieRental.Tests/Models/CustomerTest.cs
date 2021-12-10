@@ -12,7 +12,6 @@ namespace MovieRental.Tests.Models
         public void WithoutRentals()
         {
             var customer = new CustomerBuilder().Build();
-
             var expected = new StatementBuilder()
                 .WithFrequentRenterPoints(0)
                 .Build();
@@ -24,11 +23,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void RegularRental1Day()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Regular())
-                .WithDaysRented(1)
-                .Build();
-
+            var rental = RentalBuilder.Regular(1);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -42,11 +37,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void RegularRental2Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Regular())
-                .WithDaysRented(2)
-                .Build();
-
+            var rental = RentalBuilder.Regular(2);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -60,11 +51,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void RegularRental3Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Regular())
-                .WithDaysRented(3)
-                .Build();
-
+            var rental = RentalBuilder.Regular(3);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -78,11 +65,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void NewReleaseRental1Day()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.NewRelease())
-                .WithDaysRented(1)
-                .Build();
-
+            var rental = RentalBuilder.NewRelease(1);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -96,11 +79,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void NewReleaseRental2Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.NewRelease())
-                .WithDaysRented(2)
-                .Build();
-
+            var rental = RentalBuilder.NewRelease(2);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -114,11 +93,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void NewReleaseRental3Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.NewRelease())
-                .WithDaysRented(3)
-                .Build();
-
+            var rental = RentalBuilder.NewRelease(3);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -132,10 +107,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void ChildrenRental1Day()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Children())
-                .WithDaysRented(1)
-                .Build();
+            var rental = RentalBuilder.Children(1);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -149,11 +121,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void ChildrenRental3Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Children())
-                .WithDaysRented(3)
-                .Build();
-
+            var rental = RentalBuilder.Children(3);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -167,11 +135,7 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void ChildrenRental4Days()
         {
-            var rental = new RentalBuilder()
-                .WithMovie(MovieBuilder.Children())
-                .WithDaysRented(4)
-                .Build();
-
+            var rental = RentalBuilder.Children(4);
             var customer = new CustomerBuilder().WithRental(rental).Build();
 
             var expected = new StatementBuilder()
@@ -185,9 +149,9 @@ namespace MovieRental.Tests.Models
         [TestMethod]
         public void EachTypeRental10Days()
         {
-            var regularRental = new RentalBuilder().WithMovie(MovieBuilder.Regular()).WithDaysRented(10).Build();
-            var newReleaseRental = new RentalBuilder().WithMovie(MovieBuilder.NewRelease()).WithDaysRented(10).Build();
-            var childrensRental = new RentalBuilder().WithMovie(MovieBuilder.Children()).WithDaysRented(10).Build();
+            var regularRental = RentalBuilder.Regular(10);
+            var newReleaseRental = RentalBuilder.NewRelease(10);
+            var childrensRental = RentalBuilder.Children(10);
 
             var rentals = new List<Rental>
             {
